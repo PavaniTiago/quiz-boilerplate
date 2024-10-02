@@ -135,6 +135,7 @@ model SelectedAnswer {
   updatedAt     DateTime        @updatedAt
 }
 
+//analytics
 model Event {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId
   sessionId     String        @db.ObjectId
@@ -150,12 +151,14 @@ model Event {
   updatedAt     DateTime      @updatedAt
 }
 
+//analytics
 model Geolocation {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId
   ipAddress     String
   country       String
   region        String
   city          String
+  zipCode       String
   latitude      Float
   longitude     Float
   sessionId     String        @unique @db.ObjectId // Ensure uniqueness for one-to-one relation
@@ -169,3 +172,5 @@ enum QuestionType {
   MULTIPLE_CHOICE
   TEXT
 }
+
+//todo: adicionar UTMS
